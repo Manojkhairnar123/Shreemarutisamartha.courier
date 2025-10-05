@@ -1,5 +1,4 @@
-body
-{
+body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
@@ -8,154 +7,88 @@ body
   overflow-x: hidden;
 }
 
-.hero, .about-hero
-{
-  background-image: url('https://source.unsplash.com/1600x900/?courier,logistics');
-  background-size: cover;
-  background-position: center;
+.hero {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   height: 100vh;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
   animation: fadeIn 2s ease-in-out;
 }
 
-.about-hero {
-  height: 60vh;
-  background-image: url('https://source.unsplash.com/1600x900/?delivery,road');
-}
-.overlay 
-{
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 40px;
-  border-radius: 12px;
-  text-align: center;
-  color: #fff;
-  animation: slideUp 1.5s ease-out;
-}
-h1
-{
-  font-size: 2.8em;
-  margin-bottom: 10px;
-  animation: fadeInText 2s ease-in;
-}
-
-h2 
-{
-  font-size: 1.8em;
-  margin-bottom: 15px;
-  color: #222;
-}
-
-.highlight 
-{
-  color: #ff9800;
-  font-weight: 600;
-}
-
-.tagline
-{
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  animation: fadeInText 2.5s ease-in;
-}
-
-button
-{
-  background-color: #ff9800;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 1em;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: bounceIn 1.5s ease;
-}
-
-button:hover 
-{
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-
-.services, .future, .about-content 
-{
-  background: #fff;
-  margin: 40px auto;
-  padding: 25px;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.08);
-  font-size: 1.1em;
-  line-height: 1.6;
-  animation: fadeInSection 1.5s ease;
-}
-
-footer 
-{
-  background: #222;
-  color: #eee;
-  padding: 20px;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-
-@keyframes fadeIn 
-{
+/* Animations */
+@keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-@keyframes slideUp 
-{
+@keyframes slideIn {
   from { transform: translateY(50px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes fadeInText
-{
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px #ff9800; }
+  50% { box-shadow: 0 0 20px #ff9800; }
+  100% { box-shadow: 0 0 5px #ff9800; }
 }
 
-@keyframes bounceIn
-{
-  0% { transform: scale(0.9); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* Text Effects */
+.slide-in {
+  animation: slideIn 1.5s ease-out;
+  font-size: 2.8em;
 }
 
-@keyframes fadeInSection 
-{
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.fade-in {
+  animation: fadeIn 2.5s ease-in;
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 768px) 
-{
-  h1 {
+.highlight {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+/* Button */
+.glow-button {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: glowPulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.glow-button:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide-in {
     font-size: 2em;
   }
 
-  .hero, .about-hero
-  {
-    height: 70vh;
-    padding: 20px;
-  }
-
-  button 
-  {
+  .glow-button {
     width: 80%;
     font-size: 1em;
   }
-  
-  .services, .future, .about-content
-  {
-    margin: 20px;
-    padding: 15px;
+
+  .overlay {
+    padding: 20px;
   }
 }

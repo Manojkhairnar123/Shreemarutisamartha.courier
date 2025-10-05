@@ -1,64 +1,68 @@
-/* Global Styles */
-body {
+body
+{
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #f4f4f4;
   color: #333;
+  overflow-x: hidden;
 }
 
-/* Hero Section (Homepage + About) */
-.hero {
-  background-image: url('https://source.unsplash.com/1600x900/?logistics,courier');
+.hero, .about-hero
+{
+  background-image: url('https://source.unsplash.com/1600x900/?courier,logistics');
   background-size: cover;
   background-position: center;
   height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .about-hero {
+  height: 60vh;
   background-image: url('https://source.unsplash.com/1600x900/?delivery,road');
-  background-size: cover;
-  background-position: center;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
-.overlay {
+.overlay 
+{
   background-color: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 12px;
   text-align: center;
   color: #fff;
+  animation: slideUp 1.5s ease-out;
 }
-
-/* Headings and Highlights */
-h1 {
-  font-size: 2.5em;
+h1
+{
+  font-size: 2.8em;
   margin-bottom: 10px;
+  animation: fadeInText 2s ease-in;
 }
 
-h2 {
+h2 
+{
   font-size: 1.8em;
   margin-bottom: 15px;
+  color: #222;
 }
 
-.highlight {
+.highlight 
+{
   color: #ff9800;
   font-weight: 600;
 }
 
-.tagline {
+.tagline
+{
   font-size: 1.2em;
   margin-bottom: 20px;
+  animation: fadeInText 2.5s ease-in;
 }
 
-/* Button Styling */
-button {
+button
+{
   background-color: #ff9800;
   color: white;
   border: none;
@@ -67,37 +71,31 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounceIn 1.5s ease;
 }
 
-button:hover {
+button:hover 
+{
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* Section Styling */
-.services, .future, .about-content {
+
+.services, .future, .about-content 
+{
   background: #fff;
-  margin: 30px auto;
-  padding: 20px;
-  max-width: 700px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin: 40px auto;
+  padding: 25px;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
   font-size: 1.1em;
   line-height: 1.6;
+  animation: fadeInSection 1.5s ease;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-  font-size: 1em;
-}
-
-/* Footer Styling */
-footer {
+footer 
+{
   background: #222;
   color: #eee;
   padding: 20px;
@@ -105,23 +103,58 @@ footer {
   text-align: center;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+
+@keyframes fadeIn 
+{
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp 
+{
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInText
+{
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn
+{
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInSection 
+{
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) 
+{
   h1 {
     font-size: 2em;
   }
 
-  .hero, .about-hero {
-    height: 60vh;
+  .hero, .about-hero
+  {
+    height: 70vh;
     padding: 20px;
   }
 
-  button {
+  button 
+  {
     width: 80%;
     font-size: 1em;
   }
-
-  .services, .future, .about-content {
+  
+  .services, .future, .about-content
+  {
     margin: 20px;
     padding: 15px;
   }
